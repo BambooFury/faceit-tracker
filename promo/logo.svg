@@ -1,0 +1,40 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6a1a"/>
+      <stop offset="100%" style="stop-color:#ff5500"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="300" rx="60" fill="url(#bgGrad)"/>
+  
+  <!-- Border glow -->
+  <rect x="8" y="8" width="284" height="284" rx="52" fill="none" stroke="#ff5500" stroke-width="3" opacity="0.3"/>
+  
+  <!-- FACEIT style arrow/play icon -->
+  <g transform="translate(150, 150)" filter="url(#glow)">
+    <!-- Main triangle -->
+    <polygon points="-50,-70 70,0 -50,70" fill="url(#orangeGrad)"/>
+    
+    <!-- Inner detail -->
+    <polygon points="-30,-45 45,0 -30,45" fill="#1a1a1a" opacity="0.3"/>
+  </g>
+  
+  <!-- Tracking dots -->
+  <circle cx="85" cy="230" r="8" fill="#ff5500" opacity="0.6"/>
+  <circle cx="115" cy="230" r="8" fill="#ff5500" opacity="0.8"/>
+  <circle cx="145" cy="230" r="8" fill="#ff5500"/>
+  
+</svg>

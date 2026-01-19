@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 280px;
+      padding: 24px;
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', -apple-system, sans-serif;
+      text-align: center;
+    }
+    .logo {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .logo img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    p {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #ff5500;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #ff6a1a;
+      transform: translateY(-1px);
+    }
+    .version {
+      margin-top: 16px;
+      font-size: 11px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="../icons/Faceitlogo128.png" alt="FACEITracker">
+  </div>
+  <h1>FACEITracker</h1>
+  <p>Откройте FACEIT чтобы использовать трекер игроков</p>
+  <a href="https://www.faceit.com" target="_blank" class="btn">Открыть FACEIT</a>
+  <div class="version">v1.6.1</div>
+</body>
+</html>

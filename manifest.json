@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "FACEITracker",
+  "version": "1.6.1",
+  "description": "Track your favorite FACEIT CS2 players",
+  "default_locale": "en",
+  "homepage_url": "https://bamboofury.github.io/faceit-tracker",
+  "icons": {
+    "16": "icons/Faceitlogo16.png",
+    "48": "icons/Faceitlogo48.png",
+    "128": "icons/Faceitlogo128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/Faceitlogo16.png",
+      "48": "icons/Faceitlogo48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/service_worker.js",
+    "type": "module"
+  },
+  "options_page": "options/options.html",
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://open.faceit.com/*",
+    "https://faceitracker-default-rtdb.europe-west1.firebasedatabase.app/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.faceit.com/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["static/*", "icons/*"],
+      "matches": ["https://*.faceit.com/*"]
+    }
+  ]
+}

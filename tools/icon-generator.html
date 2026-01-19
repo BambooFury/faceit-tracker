@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Icon Generator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 50px;
+      background: #333;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      font-family: Arial, sans-serif;
+    }
+    .upload-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .upload-btn {
+      background: #ff5500;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .upload-btn:hover { background: #ff6a1a; }
+    .upload-btn.secondary {
+      background: #2d2d2d;
+      border: 1px solid #555;
+    }
+    .upload-btn.secondary:hover {
+      background: #3d3d3d;
+      border-color: #ff5500;
+    }
+    input[type="file"] { display: none; }
+    .icons-row {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+    .icon-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .icon-label {
+      color: #fff;
+      font-size: 14px;
+    }
+    .icon-sublabel {
+      color: #888;
+      font-size: 11px;
+    }
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+      border-radius: 22%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      overflow: hidden;
+      position: relative;
+    }
+    .icon-128 { width: 128px; height: 128px; }
+    .icon-48 { width: 48px; height: 48px; border-radius: 12px; }
+    .icon-16 { width: 16px; height: 16px; border-radius: 4px; }
+    .icon-16-preview { 
+      width: 64px; 
+      height: 64px; 
+      border-radius: 16px;
+      border: 2px dashed #555;
+    }
+    
+    .icon img {
+      width: var(--scale, 80%);
+      height: var(--scale, 80%);
+      object-fit: contain;
+    }
+    
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+    }
+    .control-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .control-label {
+      color: #fff;
+      font-size: 14px;
+      min-width: 120px;
+    }
+    .control-value {
+      color: #ff5500;
+      font-size: 14px;
+      min-width: 50px;
+    }
+    input[type="range"] {
+      flex: 1;
+      accent-color: #ff5500;
+    }
+    
+    .download-section {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .download-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .download-label {
+      color: #888;
+      font-size: 14px;
+      min-width: 80px;
+    }
+    .download-btn {
+      background: #2d2d2d;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .download-btn:hover {
+      background: #3d3d3d;
+      border-color: #ff5500;
+    }
+    .download-all {
+      background: #ff5500;
+      border-color: #ff5500;
+    }
+    .download-all:hover {
+      background: #ff6a1a;
+    }
+    .tip {
+      color: #888;
+      font-size: 12px;
+      background: #252525;
+      padding: 10px 15px;
+      border-radius: 8px;
+      border-left: 3px solid #ff5500;
+    }
+  </style>
+</head>
+<body>
+  <div class="upload-section">
+    <label class="upload-btn">
+      📁 Загрузить основной логотип
+      <input type="file" id="logoInput" accept="image/*">
+    </label>
+    <label class="upload-btn secondary">
+      🔍 Отдельная иконка для 16x16
+      <input type="file" id="logo16Input" accept="image/*">
+    </label>
+  </div>
+
+  <div class="tip">
+    💡 Для 16x16 лучше использовать упрощённую версию логотипа — без мелких деталей, только основной символ
+  </div>
+
+  <div class="icons-row">
+    <div class="icon-wrap">
+      <div class="icon icon-128" id="icon128">
+        <img id="img128" src="" alt="Logo" style="display:none;">
+      </div>
+      <span class="icon-label">128x128</span>
+    </div>
+    
+    <div class="icon-wrap">
+      <div class="icon icon-48" id="icon48">
+        <img id="img48" src="" alt="Logo" style="display:none;">
+      </div>
+      <span class="icon-label">48x48</span>
+    </div>
+    
+    <div class="icon-wrap">
+      <div class="icon icon-16" id="icon16">
+        <img id="img16" src="" alt="Logo" style="display:none;">
+      </div>
+      <span class="icon-label">16x16</span>
+      <span class="icon-sublabel">(реальный размер)</span>
+    </div>
+
+    <div class="icon-wrap">
+      <div class="icon icon-16-preview" id="icon16preview">
+        <img id="img16preview" src="" alt="Logo" style="display:none; width: 80%; height: 80%;">
+      </div>
+      <span class="icon-label">16x16</span>
+      <span class="icon-sublabel">(увеличено 4x)</span>
+    </div>
+  </div>
+
+  <div class="controls" id="controlsSection" style="display:none;">
+    <div class="control-row">
+      <span class="control-label">Масштаб 128px:</span>
+      <input type="range" id="scale128" min="50" max="150" value="80">
+      <span class="control-value" id="scale128val">80%</span>
+    </div>
+    <div class="control-row">
+      <span class="control-label">Масштаб 48px:</span>
+      <input type="range" id="scale48" min="50" max="150" value="85">
+      <span class="control-value" id="scale48val">85%</span>
+    </div>
+    <div class="control-row">
+      <span class="control-label">Масштаб 16px:</span>
+      <input type="range" id="scale16" min="50" max="150" value="95">
+      <span class="control-value" id="scale16val">95%</span>
+    </div>
+  </div>
+
+  <div class="download-section" id="downloadSection" style="display:none;">
+    <div class="download-row">
+      <span class="download-label">С фоном:</span>
+      <button class="download-btn" onclick="downloadIcon(128, true)">128x128</button>
+      <button class="download-btn" onclick="downloadIcon(48, true)">48x48</button>
+      <button class="download-btn" onclick="downloadIcon(16, true)">16x16</button>
+      <button class="download-btn download-all" onclick="downloadAll()">⬇️ Скачать все</button>
+    </div>
+    <div class="download-row">
+      <span class="download-label">Без фона:</span>
+      <button class="download-btn" onclick="downloadIcon(128, false)">128x128</button>
+      <button class="download-btn" onclick="downloadIcon(48, false)">48x48</button>
+      <button class="download-btn" onclick="downloadIcon(16, false)">16x16</button>
+    </div>
+  </div>
+
+  <script>
+    let loadedImage = null;
+    let loadedImage16 = null; // Отдельная иконка для 16x16
+    
+    const scales = { 128: 80, 48: 85, 16: 95 };
+
+    // Основной логотип
+    document.getElementById('logoInput').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const src = event.target.result;
+          loadedImage = new Image();
+          loadedImage.onload = function() {
+            updatePreviews();
+            document.getElementById('downloadSection').style.display = 'flex';
+            document.getElementById('controlsSection').style.display = 'flex';
+          };
+          loadedImage.src = src;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Отдельная иконка для 16x16
+    document.getElementById('logo16Input').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const src = event.target.result;
+          loadedImage16 = new Image();
+          loadedImage16.onload = function() {
+            updatePreviews();
+          };
+          loadedImage16.src = src;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Слайдеры масштаба
+    [128, 48, 16].forEach(size => {
+      const slider = document.getElementById(`scale${size}`);
+      const valSpan = document.getElementById(`scale${size}val`);
+      slider.addEventListener('input', function() {
+        scales[size] = parseInt(this.value);
+        valSpan.textContent = this.value + '%';
+        updatePreviews();
+      });
+    });
+
+    function updatePreviews() {
+      // 128 и 48 используют основной логотип
+      if (loadedImage) {
+        const img128 = document.getElementById('img128');
+        const img48 = document.getElementById('img48');
+        img128.src = loadedImage.src;
+        img128.style.display = 'block';
+        img128.style.width = scales[128] + '%';
+        img128.style.height = scales[128] + '%';
+        
+        img48.src = loadedImage.src;
+        img48.style.display = 'block';
+        img48.style.width = scales[48] + '%';
+        img48.style.height = scales[48] + '%';
+      }
+
+      // 16x16 может использовать отдельную иконку
+      const img16src = loadedImage16 ? loadedImage16.src : (loadedImage ? loadedImage.src : null);
+      if (img16src) {
+        const img16 = document.getElementById('img16');
+        const img16preview = document.getElementById('img16preview');
+        
+        img16.src = img16src;
+        img16.style.display = 'block';
+        img16.style.width = scales[16] + '%';
+        img16.style.height = scales[16] + '%';
+        
+        img16preview.src = img16src;
+        img16preview.style.display = 'block';
+      }
+    }
+
+    function generateIcon(size, withBackground) {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      
+      if (withBackground) {
+        const gradient = ctx.createLinearGradient(0, 0, size, size);
+        gradient.addColorStop(0, '#1a1a1a');
+        gradient.addColorStop(1, '#0a0a0a');
+        
+        const radius = size * 0.22;
+        ctx.beginPath();
+        ctx.roundRect(0, 0, size, size, radius);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        ctx.clip();
+      }
+      
+      // Выбираем нужное изображение
+      const img = (size === 16 && loadedImage16) ? loadedImage16 : loadedImage;
+      
+      if (img) {
+        const scale = scales[size] / 100;
+        const logoSize = size * scale;
+        const offset = (size - logoSize) / 2;
+        ctx.drawImage(img, offset, offset, logoSize, logoSize);
+      }
+      
+      return canvas;
+    }
+
+    function downloadIcon(size, withBackground) {
+      const canvas = generateIcon(size, withBackground);
+      const link = document.createElement('a');
+      const suffix = withBackground ? '' : '_nobg';
+      link.download = `Faceitlogo${size}${suffix}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    function downloadAll() {
+      [128, 48, 16].forEach((size, i) => {
+        setTimeout(() => downloadIcon(size, true), i * 300);
+      });
+    }
+  </script>
+</body>
+</html>
