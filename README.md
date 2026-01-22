@@ -38,6 +38,25 @@ Please see [TESTING.md](TESTING.md) for detailed testing instructions.
 3. Add players by entering their FACEIT nickname
 4. The extension will automatically track their status and stats
 
+## 📖 How It Works
+
+FACEITracker works immediately after installation - no account or setup required.
+
+**Steps:**
+1. Install the extension from the store
+2. Click the FACEITracker icon in your browser toolbar
+3. Enter a FACEIT player nickname (e.g., "s1mple", "NiKo", "donk")
+4. Click "Add" button
+5. Player statistics will appear automatically
+
+The extension fetches public data from FACEIT's official API and displays:
+- Player avatar and nickname
+- ELO rating and skill level
+- Recent match results (last 3 matches)
+- Live match status (updates every 2 minutes)
+
+**No login required** - all player data is public and accessible to everyone.
+
 ## 🔒 Privacy
 
 FACEITracker respects your privacy:

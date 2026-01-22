@@ -1,0 +1,51 @@
+HOW TO TEST THE EXTENSION:
+
+1. Install the extension in Microsoft Edge.
+
+2. Click the FACEITracker icon in the browser toolbar (orange icon with "FT").
+
+3. A popup window will open automatically.
+
+4. In the popup, you will see a search box that says "Enter nickname".
+
+5. Type one of these player names:
+   - s1mple
+   - NiKo
+   - donk
+   - m0NESY
+
+6. Click the "Add" button.
+
+7. Wait 3-5 seconds. The player will appear with their photo, statistics, and match history.
+
+8. You can add more players by repeating steps 5-7.
+
+9. To test the blacklist feature:
+   - Click the second icon in the left sidebar (circle with a line).
+   - Enter any player name.
+   - Click "Add to Blacklist".
+   - The player will appear in the blacklist.
+
+10. To test settings:
+    - Click the gear icon in the top right.
+    - You can change the language between English and Russian.
+
+IMPORTANT NOTES:
+- No FACEIT account is required to test the extension.
+- No login or registration is needed.
+- The extension works immediately after installation.
+- All player data is public and fetched from FACEIT's official API.
+- The extension stores data locally in the browser only.
+
+TEST PLAYERS:
+The players listed above (s1mple, NiKo, donk, m0NESY) are real professional CS2 players with public profiles on FACEIT. Their data is publicly available and can be viewed by anyone.
+
+PRIVACY:
+- Privacy Policy: https://bamboofury.github.io/faceit-tracker/privacy.html
+- No personal data is collected.
+- All data is stored locally in the browser.
+- The extension only reads public information from FACEIT.
+
+If you have any questions, please contact us through the Partner Center.
+
+Thank you for reviewing FACEITracker!
