@@ -3,41 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=privacy-policy/">
-    <title>FACEITracker - Privacy Policy</title>
+    <title>FACEITracker - FACEIT Player Tracker</title>
+    <link rel="icon" type="image/png" href="icons/Faceitlogo128.png">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
             background: #0a0a0a;
-            color: #fff;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #ff8c00, #ff6600);
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
+            box-shadow: 0 0 40px rgba(255, 140, 0, 0.3);
         }
-        .container {
-            text-align: center;
+        
+        .logo img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
         }
+        
         h1 {
-            color: #ff8c00;
-            margin-bottom: 20px;
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 16px;
+            font-weight: 700;
         }
-        a {
+        
+        .subtitle {
+            font-size: 20px;
+            color: #999;
+            margin-bottom: 40px;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff8c00, #ff6600);
+            color: #fff;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 140, 0, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 140, 0, 0.1);
+            color: #ff8c00;
+            border: 1px solid rgba(255, 140, 0, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 140, 0, 0.2);
+            border-color: #ff8c00;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+        
+        .feature {
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(255, 140, 0, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+        
+        .feature:hover {
+            border-color: rgba(255, 140, 0, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .feature h3 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .feature p {
+            color: #999;
+            font-size: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 140, 0, 0.1);
+            color: #666;
+            font-size: 14px;
+        }
+        
+        footer a {
             color: #ff8c00;
             text-decoration: none;
-            font-size: 18px;
         }
-        a:hover {
+        
+        footer a:hover {
             text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>FACEITracker</h1>
-        <p>Redirecting to Privacy Policy...</p>
-        <p><a href="privacy-policy/">Click here if not redirected automatically</a></p>
+        <header>
+            <div class="logo">
+                <img src="icons/Faceitlogo128.png" alt="FACEITracker">
+            </div>
+            <h1>FACEITracker</h1>
+            <p class="subtitle">Track your favorite FACEIT CS2 players in real-time</p>
+            
+            <div class="buttons">
+                <a href="https://microsoftedge.microsoft.com/addons/detail/faceitracker/kjgbpnmilanipoebacidgpbkea" class="btn btn-primary">
+                    📦 Install for Edge
+                </a>
+                <a href="privacy-policy/" class="btn btn-secondary">
+                    🔒 Privacy Policy
+                </a>
+                <a href="https://github.com/BambooFury/faceit-tracker" class="btn btn-secondary">
+                    💻 GitHub
+                </a>
+            </div>
+        </header>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h3>Track Players</h3>
+                <p>Add any FACEIT player by nickname and monitor their stats in real-time</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Live Status</h3>
+                <p>See when players are in a match with automatic updates every 2 minutes</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Player Stats</h3>
+                <p>View ELO, skill level, and recent match results at a glance</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🚫</div>
+                <h3>Blacklist</h3>
+                <p>Mark and highlight specific players with custom notes</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🌍</div>
+                <h3>Multi-Language</h3>
+                <p>Available in English and Russian with more languages coming soon</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy First</h3>
+                <p>All data stored locally on your device. No tracking, no data collection</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>FACEITracker is not affiliated with or endorsed by FACEIT Ltd.</p>
+            <p style="margin-top: 16px;">
+                <a href="privacy-policy/">Privacy Policy</a> • 
+                <a href="https://github.com/BambooFury/faceit-tracker">GitHub</a> • 
+                <a href="https://github.com/BambooFury/faceit-tracker/issues">Support</a>
+            </p>
+            <p style="margin-top: 16px;">© 2026 FACEITracker. All rights reserved.</p>
+        </footer>
     </div>
 </body>
 </html>
