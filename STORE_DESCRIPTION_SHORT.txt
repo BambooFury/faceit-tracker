@@ -1,0 +1,21 @@
+Track your favorite FACEIT CS2 players in real-time!
+
+🎯 KEY FEATURES:
+• Real-time match status (Live/Offline)
+• Player ELO and skill level tracking
+• Last 3 matches history (W/L)
+• Blacklist system with custom notes
+• Beautiful dark interface
+• Multi-language support (EN, RU)
+• Auto-updates every 2 minutes
+
+Perfect for esports fans, team managers, and competitive players who want to follow their favorite FACEIT players.
+
+✓ No login required
+✓ Works immediately
+✓ Privacy-focused (all data stored locally)
+✓ Uses public FACEIT API
+
+Track pro players like s1mple, NiKo, donk, m0NESY and never miss when they go live!
+
+Open FACEIT website and click the tracker icon to start tracking players.
