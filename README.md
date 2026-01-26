@@ -84,13 +84,6 @@ See our [Privacy Policy](privacy.html) for full details.
 4. Status updates automatically every 2 minutes
 5. Badge shows count of players currently in matches
 
-## 🌐 Supported Platforms
-
-- ✅ Google Chrome
-- ✅ Microsoft Edge
-- ✅ Brave
-- ✅ Any Chromium-based browser
-
 ## 📝 Changelog
 
 ### Version 1.6.1
