@@ -65,7 +65,7 @@ FACEITracker respects your privacy:
 - **No external servers** - Only communicates with FACEIT's public API
 - **Open source** - Code is available for review
 
-See our [Privacy Policy](privacy.html) for full details.
+See our [Privacy Policy](https://bamboofury.github.io/faceit-tracker/privacy-policy/) for full details.
 
 ## 🛠 Technical Details
 
