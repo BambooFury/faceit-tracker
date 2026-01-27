@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "FACEITracker",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Track FACEIT CS2 players in real-time. View stats, ELO, match history, and live status. No login required.",
   "default_locale": "en",
   "homepage_url": "https://bamboofury.github.io/faceit-tracker",
